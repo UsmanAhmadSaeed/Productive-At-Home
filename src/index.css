@@ -1,3 +1,19 @@
-.navbar-item{
+.navbar{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-around;
+    padding-bottom:.7em;
+    color: aliceblue;
+}
+.mx-auto > .navbar-item{
     margin:auto 1em;
+}
+.navbar-right > .navbar-item:first-of-type{
+    margin: auto 1em;
+}
+.navbar-item > a{
+    text-decoration: none;
+    color: aliceblue;
 }
