@@ -1,14 +1,13 @@
 import React from "react"
 
 function ToDoItem(props){
-        return(
-            <div style={{"margin-left":"50%"}}>
-                <h3 id="creationDate">{props.creationDate} - {props.creationTime}</h3>
-                <p id="taskDescription">{props.description}</p>
-                <input type="checkbox" onChange={() => props.handleChange(props.id)} checked={props.completed} />
-                <p id="taskDeadline">{props.deadline} - {props.deadlineTime}</p>
-
-                <button onClick={() => props.handleDelete(props.id)} id="deleteTask"><i></i>Delete</button>
+    return(
+            <div id="item">
+                <span id="creationDate">{props.creationDate} {props.creationTime}</span>
+                <span id="taskDescription">{props.description}</span>
+                <input id="status" type="checkbox" onChange={() => props.handleChange(props.id)} checked={props.completed} /><span id="statusText"></span>
+                <span id="taskDeadline">{props.deadline} {props.deadlineTime}</span>
+                <button className="btn btn-danger" onClick={() => props.handleDelete(props.id)} id="deleteTask"><i></i>Delete</button>
             </div>  
         );
 }

@@ -17,7 +17,7 @@
     text-decoration: none;
     color: aliceblue;
 } */
-#newTask{
+#newTask, #item{
     display: flex;
     flex-flow: row wrap;
     margin: 2em auto;
@@ -29,9 +29,6 @@
     border-color: aquamarine;
     background-color: aquamarine;
     padding: .3em;
-}
-#deadline{
-    text-transform: uppercase !important;
 }
 #newTask > input,#newTask > span> input{
     border-radius: 5px;
@@ -50,4 +47,12 @@
     border-left: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+}
+#status{
+    -ms-transform: scale(1.5); /* IE */
+    -moz-transform: scale(1.5); /* FF */
+    -webkit-transform: scale(1.5); /* Safari and Chrome */
+    -o-transform: scale(1.5); /* Opera */
+    transform: scale(1.5);
+    padding: .8em;
 }
