@@ -4,13 +4,9 @@ import "firebase/firestore"
 
 class NewTask extends Component{
     constructor() {
-        const today = new Date();
-        const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        const dateTime = date+' '+time;
+
         super();
         this.state = {
-         currentTime: {dateTime},
          deadlineDate: "",
          deadlineTime: "",
          description: ""
@@ -21,32 +17,35 @@ class NewTask extends Component{
           [e.target.name]: e.target.value
         });
     }
-    addTask = e => {
+     addTask = async e => {
         e.preventDefault();
+        const today = new Date();
+        const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+        
         const db = firebase.firestore();
-        db.collection("todos").add({
-          currentTime: this.state.currentTime,
+        
+        await db.collection("todos").add({
+          currentDate: date,
+          currentTime: time,
           deadlineDate: this.state.deadlineDate,
           deadlineTime: this.state.deadlineTime,
-          description: this.state.description
-        });  
+          description: this.state.description,
+          completed: false
+        });
+
         this.setState({
-          currentTime: "",
           deadlineDate: "",
           deadlineTime: "",
           description: ""
         });
         console.log("Done")
       };
-    render(){
-        const today = new Date();
-        const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        const dateTime = date+' '+time;
+
+      render(){
         return(
             <form id="newTask" onSubmit={this.addTask}>
-                <label htmlFor="currentTime">Current Time :</label>
-                    <span name="currentTime" id="currentTime">{dateTime}</span>
                 <label htmlFor="description">Task Details :</label>
                     <input name="description" id="description" type="text" placeholder="Description" onChange={this.updateInput} value={this.state.description} />
                 <label htmlFor="deadline">Deadline</label>
