@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import firebase from "firebase"
+import firebase from "firebase/app"
 import "firebase/firestore"
 
 class NewTask extends Component{
@@ -24,9 +24,6 @@ class NewTask extends Component{
     addTask = e => {
         e.preventDefault();
         const db = firebase.firestore();
-        db.settings({
-          timestampsInSnapshots: true
-        });
         db.collection("todos").add({
           currentTime: this.state.currentTime,
           deadlineDate: this.state.deadlineDate,
@@ -39,6 +36,7 @@ class NewTask extends Component{
           deadlineTime: "",
           description: ""
         });
+        console.log("Done")
       };
     render(){
         const today = new Date();
@@ -46,17 +44,17 @@ class NewTask extends Component{
         const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         const dateTime = date+' '+time;
         return(
-            <form onSubmit={this.addTask}>
-                <label for="currentTime">Current Time</label>
+            <form id="newTask" onSubmit={this.addTask}>
+                <label htmlFor="currentTime">Current Time</label>
                     <span name="currentTime" id="currentTime">{dateTime}</span>
-                <label for="description">Task Details</label>
-                    <input name="description" id="description" type="text" placeholder="Description" value={this.state.description} onChange={this.updateInput} />
-                <label for="deadline">Deadline</label>
+                <label htmlFor="description">Task Details</label>
+                    <input name="description" id="description" type="text" placeholder="Description" onChange={this.updateInput} value={this.state.description} />
+                <label htmlFor="deadline">Deadline</label>
                     <span name="deadline" id="deadline">
                         <input name="deadlineDate" id="deadlineDate" type="date" min={this.date} onChange={this.updateInput} value={this.state.deadlineDate} />
                         <input name="deadlineTime" id="deadlineTime" type="time" onChange={this.updateInput} value={this.state.deadlineTime} />
                     </span>
-                <button type="submit" value="Add Task" onClick="submit()">Add Task</button>
+                <button type="submit" value="Add Task">Add Task</button>
             </form>
         );
     }
