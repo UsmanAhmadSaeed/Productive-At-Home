@@ -2,13 +2,13 @@ import React from "react"
 
 function ToDoItem(props){
         return(
-            <div>
-                <h3 id="creationDate">{props.creationDate}</h3>
+            <div style={{"margin-left":"50%"}}>
+                <h3 id="creationDate">{props.creationDate} - {props.creationTime}</h3>
                 <p id="taskDescription">{props.description}</p>
-                <input type="checkbox" checked={props.completed} />
-                <p id="taskDeadline">{props.deadline}</p>
-                <button id="editTask"><i></i></button>
-                <button id="deleteTask"><i></i></button>
+                <input type="checkbox" onChange={() => props.handleChange(props.id)} checked={props.completed} />
+                <p id="taskDeadline">{props.deadline} - {props.deadlineTime}</p>
+
+                <button onClick={() => props.handleDelete(props.id)} id="deleteTask"><i></i>Delete</button>
             </div>  
         );
 }

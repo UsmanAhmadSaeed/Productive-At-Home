@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+//eslint-disable-next-line
+import config from "./config";
 
 ReactDOM.render(
   <React.StrictMode>
