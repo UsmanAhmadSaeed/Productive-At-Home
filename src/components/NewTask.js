@@ -45,16 +45,16 @@ class NewTask extends Component{
         const dateTime = date+' '+time;
         return(
             <form id="newTask" onSubmit={this.addTask}>
-                <label htmlFor="currentTime">Current Time</label>
+                <label htmlFor="currentTime">Current Time :</label>
                     <span name="currentTime" id="currentTime">{dateTime}</span>
-                <label htmlFor="description">Task Details</label>
+                <label htmlFor="description">Task Details :</label>
                     <input name="description" id="description" type="text" placeholder="Description" onChange={this.updateInput} value={this.state.description} />
                 <label htmlFor="deadline">Deadline</label>
                     <span name="deadline" id="deadline">
-                        <input name="deadlineDate" id="deadlineDate" type="date" min={this.date} onChange={this.updateInput} value={this.state.deadlineDate} />
-                        <input name="deadlineTime" id="deadlineTime" type="time" onChange={this.updateInput} value={this.state.deadlineTime} />
+                        <input name="deadlineDate" id="deadlineDate" placeholder="MM/DD/YYYY" type="date" min={this.date} onChange={this.updateInput} value={this.state.deadlineDate} />
+                        <input name="deadlineTime" id="deadlineTime" placeholder="HH:MM AM/PM" type="time" onChange={this.updateInput} value={this.state.deadlineTime} />
                     </span>
-                <button type="submit" value="Add Task">Add Task</button>
+                <button className="btn btn-primary"type="submit" value="Add Task">Add Task</button>
             </form>
         );
     }
