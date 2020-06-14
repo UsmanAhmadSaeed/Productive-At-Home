@@ -1,0 +1,53 @@
+/* .navbar{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-around;
+    padding-bottom:.7em;
+    color: aliceblue;
+}
+.mx-auto > .navbar-item{
+    margin:auto 1em;
+}
+.navbar-right > .navbar-item:first-of-type{
+    margin: auto 1em;
+}
+.navbar-item > a{
+    text-decoration: none;
+    color: aliceblue;
+} */
+#newTask{
+    display: flex;
+    flex-flow: row wrap;
+    margin: 2em auto;
+    width: 80vw;
+    height: auto;
+    align-items: baseline;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    border-color: aquamarine;
+    background-color: aquamarine;
+    padding: .3em;
+}
+#deadline{
+    text-transform: uppercase !important;
+}
+#newTask > input,#newTask > span> input{
+    border-radius: 5px;
+    border-color: chartreuse;
+    border-width: 3px;
+    background-color: aquamarine;
+    color: brown;
+    font-weight: 600;
+}
+#deadlineDate{
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#deadlineTime{
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
