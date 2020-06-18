@@ -1,4 +1,7 @@
-/* .navbar{
+body{
+    background:antiquewhite;
+}
+.navbar{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -7,16 +10,28 @@
     padding-bottom:.7em;
     color: aliceblue;
 }
-.mx-auto > .navbar-item{
-    margin:auto 1em;
+.navbar-right>.btn{
+    margin-right: .2em;
 }
-.navbar-right > .navbar-item:first-of-type{
-    margin: auto 1em;
+.landingH1{
+    margin-top: 3%;
+    font-family: monospace;
+    font-weight: 700;
 }
-.navbar-item > a{
-    text-decoration: none;
-    color: aliceblue;
-} */
+.landingDescription{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.3em;
+    font-style: oblique;
+}
+.authForm{
+    width: inherit;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto 4em;
+    padding: auto;
+}
 #newTask, #item{
     display: flex;
     flex-flow: row wrap;
